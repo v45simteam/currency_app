@@ -72,14 +72,16 @@ class TCMBAnlikKurBilgileri {
       this.crossRateOther});
 
   TCMBAnlikKurBilgileri.fromJson(Map<String, dynamic> json) {
-    isim = json['Isim'];
+    isim = json['Isim'] == null ? "" : json['Isim'];
     currencyName = json['CurrencyName'];
-    forexBuying = json['ForexBuying'];
-    forexSelling = json['ForexSelling'];
-    banknoteBuying = json['BanknoteBuying'];
-    banknoteSelling = json['BanknoteSelling'];
-    crossRateUSD = json['CrossRateUSD'];
-    crossRateOther = json['CrossRateOther'];
+    forexBuying = json['ForexBuying'] == "" ? 0.0 : json['ForexBuying'];
+    forexSelling = json['ForexSelling'] == "" ? 0.0 : json['ForexSelling'];
+    banknoteBuying =
+        (json['BanknoteBuying']) == "" ? 0.0 : json['BanknoteBuying'];
+    banknoteSelling =
+        json['BanknoteSelling'] == "" ? 0.0 : json['BanknoteSelling'];
+    crossRateUSD = json['CrossRateUSD'] == "" ? "" : "";
+    crossRateOther = json['CrossRateOther'] == null ? "" : "";
   }
 
   Map<String, dynamic> toJson() {

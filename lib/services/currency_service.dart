@@ -11,6 +11,7 @@ class CurrencyService {
 
     if (res.statusCode == 200) {
       var jsonBody = CurrencyModel.fromJson(jsonDecode(res.body));
+      return jsonBody;
     } else {
       print("Error Code: " + res.statusCode.toString());
     }
